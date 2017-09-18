@@ -13,3 +13,4 @@ RUN apt-get install -y cron supervisor  python3-dev python3 python3-pip
 
 RUN pip3 install --upgrade pip \
  && pip3 install setuptools
+
