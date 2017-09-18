@@ -1,20 +1,16 @@
 FROM ubuntu:16.04
 
-RUN mkdir -p /Frontend/web
-
-COPY package.json /Frontend/web/package.json
-COPY bower.json /Frontend/web/bower.json
+# ... do your other task related docker setup
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update
 
-RUN apt-get install -y nodejs nodejs-legacy
-RUN apt-get install -y npm
-RUN apt-get install -y git
-RUN apt-get install -y nginx
-RUN npm install -g bower
-RUN npm install -g gulp
+RUN apt-get update \
+ && apt-get -y --no-install-recommends install apt-utils 
+RUN apt-get upgrade -y
+RUN apt-get install -y ca-certificates
+RUN apt-get install -y cron supervisor  python3-dev python3 python3-pip
 
-RUN cd /Frontend/web && ls && bower install --allow-root && npm install && cd ~
+RUN pip3 install --upgrade pip \
+ && pip3 install setuptools
 
