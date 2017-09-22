@@ -9,7 +9,7 @@ RUN apt-get update \
  && apt-get -y --no-install-recommends install apt-utils 
 RUN apt-get upgrade -y
 RUN apt-get install -y ca-certificates
-RUN apt-get install -y cron supervisor  python3-dev python3 python3-pip
+RUN apt-get install -y cron supervisor  python3-dev python3 python3-pip wget
 
 RUN pip3 install --upgrade pip \
  && pip3 install setuptools
